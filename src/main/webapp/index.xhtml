@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<f:view xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:p="http://primefaces.org/ui">
+	<html xmlns="http://www.w3.org/1999/xhtml">
+		<h:head>
+			<title>presidents</title>
+		</h:head>
+		<h:body>
+			<h:form>
+				<p>Open a <a href="#" target="_blank">new tab</a> and close the session in that tab, then return to this tab and click a column header</p>
+				<h:commandButton action="#{userBean.logOut}" value="Log me out" />
+			</h:form>
+			<p:dataTable value="#{myDataModel}" var="myBean" lazy="true" paginator="true" rows="10" paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}" rowsPerPageTemplate="5,10,15">
+				<p:column headerText="firstName" sortBy="#{myBean.firstName}">
+					<h:outputText value="#{myBean.firstName}" />
+				</p:column>
+				<p:column headerText="lastName" sortBy="#{myBean.lastName}">
+					<h:outputText value="#{myBean.lastName}" />
+				</p:column>
+			</p:dataTable>
+		</h:body>
+	</html>
+</f:view>
